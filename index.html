@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart-HR Assets</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .asset-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .asset-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .asset-list {
+            list-style: none;
+            padding: 0;
+        }
+        .asset-list li {
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .asset-list li:last-child {
+            border-bottom: none;
+        }
+        .folder-link {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .folder-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Smart-HR Static Assets</h1>
+        <p>This repository contains static assets for the Smart-HR application</p>
+    </div>
+
+    <div class="asset-section">
+        <h3>Available Asset Folders</h3>
+        <ul class="asset-list">
+            <li><a href="bg/" class="folder-link">📁 Background Images (bg/)</a> - Logo and background images</li>
+            <li><a href="css/" class="folder-link">📁 Stylesheets (css/)</a> - CSS files and styles</li>
+            <li><a href="fonts/" class="folder-link">📁 Fonts (fonts/)</a> - Web fonts and icon fonts</li>
+            <li><a href="images/" class="folder-link">📁 Images (images/)</a> - Application images and icons</li>
+            <li><a href="js/" class="folder-link">📁 JavaScript (js/)</a> - JavaScript files and scripts</li>
+            <li><a href="plugins/" class="folder-link">📁 Plugins (plugins/)</a> - Third-party plugins and libraries</li>
+            <li><a href="apis-script/" class="folder-link">📁 API Scripts (apis-script/)</a> - API integration scripts</li>
+        </ul>
+    </div>
+
+    <div class="asset-section">
+        <h3>Usage</h3>
+        <p>These assets are served via Cloudflare Pages and can be accessed using the following base URL:</p>
+        <code>https://your-cloudflare-domain.pages.dev/</code>
+        <p>Example: <code>https://your-cloudflare-domain.pages.dev/css/style.css</code></p>
+    </div>
+
+    <div class="asset-section">
+        <h3>Deployment</h3>
+        <p>This repository is configured for automatic deployment to Cloudflare Pages. Any changes pushed to the main branch will automatically trigger a new deployment.</p>
+    </div>
+</body>
+</html> 

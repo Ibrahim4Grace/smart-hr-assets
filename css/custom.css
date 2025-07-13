@@ -1,0 +1,70 @@
+:root {
+    --bs-primary-rgb: 255, 87, 34;
+    --bs-primary: #FF5722;
+    --bs-secondary: #6c757d;
+    --bs-font-sans-serif: 'Inter', sans-serif;
+    --bs-body-color: #4c545b;
+    --bs-body-bg: #fdfdfe;
+    --bs-link-color: #FF5722;
+    --bs-link-hover-color: #E64A19;
+}
+
+body {
+    font-family: var(--bs-font-sans-serif);
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+}
+
+.btn-primary {
+    background: linear-gradient(to right, #FF5722, #FF7043);
+    border: none;
+    transition: all 0.3s ease;
+    color: white !important;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 87, 34, 0.4);
+}
+
+.navbar-brand img {
+    height: 40px;
+}
+
+#hero {
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, #fdfdfe 100%);
+}
+
+.card {
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border-color: var(--bs-primary);
+}
+
+/* Shimmer effect for temporary notes */
+.temporary-note {
+    opacity: 0.8;
+    position: relative;
+}
+
+.temporary-note::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%);
+    animation: shimmer 2s infinite;
+    pointer-events: none;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+} 
