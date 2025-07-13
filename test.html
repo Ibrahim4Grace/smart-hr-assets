@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart-HR Assets Test</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <style>
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .status {
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .success { background-color: #d4edda; color: #155724; }
+        .error { background-color: #f8d7da; color: #721c24; }
+        .loading { background-color: #fff3cd; color: #856404; }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Smart-HR Assets Test Page</h1>
+        <p>This page tests if all your static assets are loading correctly from the local server.</p>
+        
+        <div class="test-section">
+            <h3>CSS Files Test</h3>
+            <div id="css-test" class="loading">Testing CSS files...</div>
+        </div>
+        
+        <div class="test-section">
+            <h3>JavaScript Files Test</h3>
+            <div id="js-test" class="loading">Testing JavaScript files...</div>
+        </div>
+        
+        <div class="test-section">
+            <h3>Image Files Test</h3>
+            <div id="image-test" class="loading">Testing image files...</div>
+            <img src="images/favicon.png" alt="Favicon" style="max-width: 50px; display: none;" id="test-image">
+        </div>
+        
+        <div class="test-section">
+            <h3>Font Files Test</h3>
+            <div id="font-test" class="loading">Testing font files...</div>
+        </div>
+        
+        <div class="test-section">
+            <h3>Plugin Files Test</h3>
+            <div id="plugin-test" class="loading">Testing plugin files...</div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Test function to check if files are accessible
+        function testFile(url, elementId) {
+            fetch(url)
+                .then(response => {
+                    if (response.ok) {
+                        document.getElementById(elementId).innerHTML = `✅ ${url} - Loaded successfully`;
+                        document.getElementById(elementId).className = 'status success';
+                    } else {
+                        document.getElementById(elementId).innerHTML = `❌ ${url} - Failed to load (${response.status})`;
+                        document.getElementById(elementId).className = 'status error';
+                    }
+                })
+                .catch(error => {
+                    document.getElementById(elementId).innerHTML = `❌ ${url} - Error: ${error.message}`;
+                    document.getElementById(elementId).className = 'status error';
+                });
+        }
+
+        // Test image loading
+        function testImage(url, elementId) {
+            const img = new Image();
+            img.onload = function() {
+                document.getElementById(elementId).innerHTML = `✅ ${url} - Image loaded successfully`;
+                document.getElementById(elementId).className = 'status success';
+            };
+            img.onerror = function() {
+                document.getElementById(elementId).innerHTML = `❌ ${url} - Image failed to load`;
+                document.getElementById(elementId).className = 'status error';
+            };
+            img.src = url;
+        }
+
+        // Run tests when page loads
+        window.addEventListener('load', function() {
+            // Test CSS files
+            testFile('css/style.css', 'css-test');
+            testFile('css/bootstrap.min.css', 'css-test');
+            
+            // Test JavaScript files
+            testFile('js/jquery-3.7.1.min.js', 'js-test');
+            testFile('js/bootstrap.bundle.min.js', 'js-test');
+            
+            // Test image files
+            testImage('images/favicon.png', 'image-test');
+            
+            // Test font files
+            testFile('fonts/tabler-icons.woff2', 'font-test');
+            
+            // Test plugin files
+            testFile('plugins/summernote/summernote-bs4.min.css', 'plugin-test');
+        });
+    </script>
+</body>
+</html> 
