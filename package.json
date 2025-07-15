@@ -4,14 +4,14 @@
   "description": "Static assets for Smart-HR application",
   "main": "index.html",
   "scripts": {
-    "start": "http-server -p 3000 -o",
-    "dev": "http-server -p 3000 -o -c-1",
+    "start": "http-server -p 3000 -o --cors",
+    "dev": "http-server -p 3000 -o -c-1 --cors",
     "serve": "python -m http.server 3000",
     "express": "node server.js"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^5.1.0",
-    "gitignore": "^0.7.0",
     "http-server": "^14.1.1"
   },
   "devDependencies": {

@@ -1,8 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Enable CORS for all routes
+app.use(cors());
 
 // Serve static files from the root directory
 app.use(express.static(__dirname));
